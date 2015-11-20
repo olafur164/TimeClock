@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('clock-in/{digit}', 'TimeEntries@clockIn');
-
-Route::get('clock-out/{digit}', 'TimeEntries@clockOut');
+Route::get('clock/{digit}', 'TimeEntries@clock');

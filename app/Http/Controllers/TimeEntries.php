@@ -13,24 +13,26 @@ class TimeEntries extends Controller
     {
 
     }
-    public function clockIn($id)
+    public function clock($id)
     {
-        $exists = checkIfExists($id);
+        $exists = TimeEntries\checkIfExists($id);
         if($exists == 1) {
             $loggedIn = checkIfLoggedIn($id);
-            if ($loggedIn == 1)
+            if ($loggedIn == 1) {
+                return $id;
+                //login($id);
+            } else {
+                return 'failed';
+                //logout();
+            }
         }
-        else 
+        else { return 'failed doesn\'t exist'; }
     }
     protected function checkIfLoggedIn($id) {
-        $results = DB::select('select * from timeentries where user_id = ? and logged_in = 1', [$id])
+        $results = DB::select('select * from timeentries where user_id = ? and logged_in = 1', [$id]);
         if ($results[4] == 1) {
             return 1;
         } else { return 0; }
-    }
-    public function clockOut($id)
-    {
-        
     }
     protected function checkIfExists($id) {
         $results = $DB::select('select * from users where id = ?', [$id]);
