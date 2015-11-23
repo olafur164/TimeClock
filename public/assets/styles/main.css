@@ -1,0 +1,159 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font: inherit;
+font-size: 100%;
+vertical-align: baseline;
+}
+ol, ul {
+list-style: none
+}
+body {
+font: 100% 'Open Sans', Arial, Helvetica, sans-serif;
+background:#202020;
+}
+.time-clock {
+	width: 100%;
+	height: 100%;
+}
+.time-clock .number {
+position: relative;
+z-index: 2;
+color: #4d4d4d;
+font-weight: 300;
+font-size: 40px;
+background: #fff;
+}
+.time-clock .stampIn {
+margin: -1px 0 0 -1px;
+background: #1d1918;
+cursor: pointer
+}
+.time-clock .stampIn:before, .time-clock .stampIn:after {
+content: "\0020";
+display: block;
+height: 0;
+overflow: hidden
+}
+.time-clock .stampIn:after {
+clear: both
+}
+.time-clock .stampIn .digits {
+float: left;
+width: 33.33%;
+}
+.time-clock .stampIn .digits-log {
+float: left;
+width: 100%;
+}
+.time-clock .stampIn .digits p, .time-clock .stampIn .digits-log p {
+font-weight: 600;
+padding: 9px 25px;
+border-top: 1px solid #4d4d4d;
+border-right: 1px solid #000;
+border-bottom: 1px solid #000;
+border-left: 1px solid #4d4d4d;
+text-align: center;
+}
+.time-clock .stampIn .digits p, .time-clock .stampIn .digits-log button {
+background: #1d1918;
+}
+.time-clock .stampIn .digits p strong, .time-clock .stampIn .digits-log p strong {
+font-size: 50px;
+margin-right: 8px;
+color: #fff;
+}
+.time-clock .stampIn .digits:active , .time-clock .stampIn .digits-log a {
+text-decoration: none;
+}
+.compact .stampIn .digits p {
+padding: 22px 15px;
+}
+.compact .stampIn .digits p strong {
+font-size: 26px;
+}
+
+.digits sub, .digits-log sub{
+	font-size: 1.5em;
+	color: #fff;
+}
+
+
+
+/* clock face */
+
+
+.clock {
+    width: 100%;
+    color: #fff;
+}
+h1 {
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    color: #fff;
+    text-align: center;
+    color: #822519;
+    text-shadow: 0px 0 20px #571911;
+}
+#Date {
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-shadow: 0 0 5px #00c6ff;
+}
+
+ul {
+    width: 100%;
+    list-style: none;
+}
+
+ul li {
+    display: inline;
+    font-size: 2em;
+    text-align: center;
+    text-shadow: 0 0 10px #00c6ff;
+}
+
+
+::-moz-selection { /* Code for Firefox */
+    color: red;
+    background: yellow;
+}
+
+::selection {
+    color: none; 
+    background: none;
+}
+.number {
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    color: #fff;
+    text-align: center;
+    color: #822519;
+    text-shadow: 0px 0 20px #571911;
+    margin-left: 5em;
+}
+.button
+{
+    width   : 100%;
+    background  : none;
+    cursor  : pointer;
+    font-family : 'voltaeftu-regular',Times New Roman;
+    font-size   : 16px;
+    color   : #fff;
+    border  : none;
+    margin      : 0px;
+    padding     : 0px;
+}
+.wrapper {    
+    height: auto;
+}
+.centerilize {
+
+}
+.alert {
+    position: fixed;
+    overflow: hidden;
+    opacity: 0.5;
+    margin-left:15em;
+}

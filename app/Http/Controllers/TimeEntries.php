@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
+use App\TimeEntry;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Redirect;
+use Carbon\Carbon;
+use DB;
+use Request;
 
 class TimeEntries extends Controller
 {
@@ -13,35 +18,43 @@ class TimeEntries extends Controller
     {
 
     }
-    public function clock($id)
+    public function clock()
     {
-        $exists = TimeEntries\checkIfExists($id);
+        $input = Request::all();
+        $id = $input['userlogin'];
+        $exists = timeentries::checkIfExists($id);
         if($exists == 1) {
-            $loggedIn = checkIfLoggedIn($id);
+            $loggedIn = timeentries::checkIfLoggedIn($id);
+            $date = date('Y-m-d H:i:s');
             if ($loggedIn == 1) {
-                return $id;
-                //login($id);
+                DB::update('update timeentries set logged_in = 0, ClockOut = ? where user_id = ? and logged_in = 1', [$date, $id]);
+                \Session::flash('success', 'Útskráning tókst fyrir Starfsmann ' . $id);
+                return redirect('/');
             } else {
-                return 'failed';
-                //logout();
+                DB::insert('insert into timeentries(user_id, ClockIn, logged_in) values(?,?,?)', [$id, $date, 1]);
+                \Session::flash('success', 'Innskráning tókst fyrir Starfsmann' . $id);
+                return redirect('/');
             }
         }
-        else { return 'failed doesn\'t exist'; }
+        else { 
+            \Session::flash('danger', 'Þessi kóði er ekki skráður fyrir neinn starfsmann. ' . $id);
+            return redirect('/');
+        }
     }
     protected function checkIfLoggedIn($id) {
-        $results = DB::select('select * from timeentries where user_id = ? and logged_in = 1', [$id]);
-        if ($results[4] == 1) {
+        $results = DB::table('timeentries')->where('user_id', $id)->where('logged_in', '1')->value('logged_in');
+        if ($results == 1) {
             return 1;
-        } else { return 0; }
+        }
+        else { return 0; }
     }
     protected function checkIfExists($id) {
-        $results = $DB::select('select * from users where id = ?', [$id]);
-        if($results[0] == $id) {
+        $results = DB::select('select * from users where id = ?', [$id]);
+        if($results) {
             return 1;
         }
         else { return 0; }
     }
     protected function login($id) {
-        DB::insert('insert into timeentries (user_id, ClockIn, ClockOut, logged_in) values (?, ?, ?, ?)', [$id, now(), NULL, 1]);
     }
 }

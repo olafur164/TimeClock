@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('clock/{digit}', 'TimeEntries@clock');
+Route::post('/', 'TimeEntries@clock');
