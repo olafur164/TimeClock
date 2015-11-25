@@ -16,7 +16,7 @@ class CreateTimeEntries extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->dateTime('ClockIn');
-            $table->dateTime('ClockOut');
+            $table->dateTime('ClockOut')->nullable()->default(NULL);
             $table->integer('logged_in')->unsigned();
 
         });

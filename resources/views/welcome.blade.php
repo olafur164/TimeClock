@@ -12,6 +12,8 @@
 </head>
 <body>
 
+    <div class="wrapper">
+
             <?php if(Session::has('success')): ?>
                 <div class="alert alert-success" role="alert">
                     <div class="container">
@@ -27,7 +29,15 @@
                 </div>
             <?php endif; ?>
 
-    <div class="wrapper">
+                @if (count($errors) > 0)
+                <div class="alert alert-danger" role="alert">
+                    <div class="container">
+                        @foreach ($errors->all() as $error)
+                            {{ $error }}
+                        @endforeach
+                    </div>
+                </div>
+                @endif
         <div class="clock">
             <div id="Date"></div>
           <ul>
@@ -36,9 +46,12 @@
               <li id="min"></li>
               <li id="point">:</li>
               <li id="sec"></li>
-              <li class="number"></li>
           </ul>
         </div>
+        <ul>
+            <li class="inserted">Number:</li>
+            <li class="number"></li>
+        </ul>
     <section role="main">
         <div class="time-clock compact">
             <div class="stampIn">

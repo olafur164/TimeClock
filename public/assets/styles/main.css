@@ -87,30 +87,29 @@ font-size: 26px;
 .clock {
     width: 100%;
     color: #fff;
+    text-align: center;
 }
 h1 {
     font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
     font-size: 36px;
     color: #fff;
-    text-align: center;
     color: #822519;
     text-shadow: 0px 0 20px #571911;
 }
 #Date {
     font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: 15px;
     text-shadow: 0 0 5px #00c6ff;
 }
 
 ul {
+    text-align: center;
     width: 100%;
-    list-style: none;
 }
 
 ul li {
     display: inline;
     font-size: 2em;
-    text-align: center;
     text-shadow: 0 0 10px #00c6ff;
 }
 
@@ -124,15 +123,7 @@ ul li {
     color: none; 
     background: none;
 }
-.number {
-    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
-    font-size: 36px;
-    color: #fff;
-    text-align: center;
-    color: #822519;
-    text-shadow: 0px 0 20px #571911;
-    margin-left: 5em;
-}
+
 .button
 {
     width   : 100%;
@@ -147,13 +138,14 @@ ul li {
 }
 .wrapper {    
     height: auto;
-}
-.centerilize {
-
+    position: relative;
 }
 .alert {
-    position: fixed;
-    overflow: hidden;
-    opacity: 0.5;
-    margin-left:15em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.number {
+    color:#baafff;
 }
