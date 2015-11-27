@@ -40,7 +40,7 @@
                 @endif
         <div class="clock">
             <div id="Date"></div>
-          <ul>
+          <ul class="dateandtime">
               <li id="hours"></li>
               <li id="point">:</li>
               <li id="min"></li>
@@ -52,7 +52,6 @@
             <li class="inserted">Number:</li>
             <li class="number"></li>
         </ul>
-    <section role="main">
         <div class="time-clock compact">
             <div class="stampIn">
                 <ol>
@@ -104,7 +103,24 @@
                 </ol>
             </div>
         </div>
-    </section>
+        <div class="panel">
+            <!--
+            <div class="list user-log">
+                <label for="">Innskráning/Útskráning</label>
+                <hr>
+                <button class="btn btn-default">Innskráning</button>
+                <button class="btn btn-default">Útskráning</button>
+            </div>
+            <hr>
+            !-->
+            <div class="list user-actions">
+                <label for="">Starfsmenn</label>
+                <hr>
+                <a href="#TimeRecord"><button class="btn btn-default">Sjá tímaskráningu</button></a>
+                <a href="#WeekPlan"><button class="btn btn-default">Sjá vikuplan</button></a>
+                <a href="#PutOnTab"><button class="btn btn-default">Skrifa á mig gos</button></a>
+            </div>
+        </div>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
     <!-- Latest compiled and minified JavaScript -->

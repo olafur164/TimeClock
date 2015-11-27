@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Response;
 
 use App\TimeEntry;
-use App\User;
+use App\Employees;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Redirect;
@@ -35,14 +35,14 @@ class TimeEntriesController extends Controller
             if($exists == 1) {
                 $loggedIn = TimeEntry::checkIfLoggedIn($id);
                 $date = date('Y-m-d H:i:s');
-                $user = User::getUser($id);
+                $employee = Employees::getEmployee($id);
                 if ($loggedIn == 1) {
                     DB::update('update timeentries set logged_in = 0, ClockOut = ? where user_id = ? and logged_in = 1', [$date, $id]);
-                    \Session::flash('success', 'Útskráning tókst fyrir Starfsmann - ' . $user->name);
+                    \Session::flash('success', 'Útskráning tókst fyrir Starfsmann - ' . $employee->name);
                     return redirect('/');//->with('message', 'Útskráning tókst fyrir Starfsmann - ' . $id);
                 } else {
-                    DB::insert('insert into timeentries(user_id, ClockIn, logged_in) values(?,?,?)', [$id, $date, 1]);
-                    \Session::flash('success', 'Innskráning tókst fyrir Starfsmann - ' . $user->name);
+                    DB::insert('insert into timeentries(employee_id, ClockIn, logged_in) values(?,?,?)', [$id, $date, 1]);
+                    \Session::flash('success', 'Innskráning tókst fyrir Starfsmann - ' . $employee->name);
                     return redirect('/');//->with('message', 'Innskráning tókst fyrir Starfsmann - ' . $id);
                 }
             }

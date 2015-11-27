@@ -14,14 +14,14 @@ class TimeEntry extends Model
 	];
 	
     protected function checkIfLoggedIn($id) {
-        $results = DB::table('timeentries')->where('user_id', $id)->where('logged_in', '1')->value('logged_in');
+        $results = DB::table('timeentries')->where('employee_id', $id)->where('logged_in', '1')->value('logged_in');
         if ($results == 1) {
             return 1;
         }
         else { return 0; }
     }
     protected function checkIfExists($id) {
-        $results = DB::select('select * from users where id = ?', [$id]);
+        $results = DB::select('select * from employees where id = ?', [$id]);
         if($results) {
             return 1;
         }

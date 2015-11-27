@@ -14,7 +14,7 @@ class CreateTimeEntries extends Migration
     {
         Schema::create('TimeEntries', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('employee_id')->unsigned();
             $table->dateTime('ClockIn');
             $table->dateTime('ClockOut')->nullable()->default(NULL);
             $table->integer('logged_in')->unsigned();

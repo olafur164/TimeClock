@@ -36,8 +36,4 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected function getUser($id) {
-        $user = DB::table('users')->where('id', $id)->first();
-        return $user;
-    }
 }

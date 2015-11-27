@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use App\User;
+use App\Employees;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,13 +15,13 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call('UsersTableSeeder');
+        $this->call('EmployeesTableSeeder');
     }
 }
-class UsersTableSeeder extends Seeder {
+class EmployeesTableSeeder extends Seeder {
     public function run()
     {
-        DB::table('users')->delete();
+        DB::table('employees')->delete();
 
         $employees = array(
             ['id' => '0709972319', 'name' => 'Árni Þór Busk'],
@@ -53,7 +53,7 @@ class UsersTableSeeder extends Seeder {
 
         foreach($employees as $employee)
         {
-            User::create($employee);
+            Employees::create($employee);
         }
     }
 }

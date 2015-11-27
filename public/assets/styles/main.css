@@ -14,7 +14,7 @@ font: 100% 'Open Sans', Arial, Helvetica, sans-serif;
 background:#202020;
 }
 .time-clock {
-	width: 100%;
+    width: 70%;
 	height: 100%;
 }
 .time-clock .number {
@@ -102,7 +102,7 @@ h1 {
     text-shadow: 0 0 5px #00c6ff;
 }
 
-ul {
+ul .dateandtime {
     text-align: center;
     width: 100%;
 }
@@ -148,4 +148,29 @@ ul li {
 }
 .number {
     color:#baafff;
+}
+
+.time-clock {
+    float:left;
+}
+.panel {
+    background: transparent;
+    width: 25%;
+    margin: 1em;
+    float:left;
+}
+.panel label {
+    color: #fff;
+}
+.panel .list button {
+    width: 100%;
+background: #1d1918;
+    margin: 0 0 10px;
+font-size: 16px;
+    color: #fff;
+border-top: 1px solid #4d4d4d;
+border-right: 1px solid #000;
+border-bottom: 1px solid #000;
+border-left: 1px solid #4d4d4d;
+text-align: center;
 }
